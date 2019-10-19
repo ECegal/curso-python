@@ -1,5 +1,6 @@
 palavra_secreta = 'banana'
-saida2 = ['_','_','_','_','_','_']
+saida2 = ['_' for letra in palavra_secreta]
+
 chances = 6
 
 linha1 =     ' ________'
