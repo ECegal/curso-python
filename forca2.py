@@ -1,5 +1,11 @@
-def jogar():
-    palavra_secreta = 'banana'
+from random import randint
+
+
+def jogo():
+    palavras = ['abacaxi', 'maca','banana', 'manga']    
+    indice = randint(0,len(palavras)-1)
+    palavra_secreta = palavras[indice]
+
     saida2 = ['_' for letra in palavra_secreta]
 
     chances = 6
@@ -40,6 +46,7 @@ def jogar():
         print(saida)
 
     mensagem_de_boas_vindas()
+    print_forca(6)
 
     while chances > 0:
         letra = input('Digite uma letra: ').lower()
@@ -63,3 +70,5 @@ def jogar():
                        chances = 0
     if '_' in saida2:
         print('Você foi enforcado   :(   !!!')
+
+jogo()
