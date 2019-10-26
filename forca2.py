@@ -1,9 +1,18 @@
-from random import randint
+from random import randrange
 
 
 def jogo():
-    palavras = ['abacaxi', 'maca','banana', 'manga']    
-    indice = randint(0,len(palavras)-1)
+    arquivo = open('palavras.txt')
+    
+    #palavras = arquivo.readlines()
+    palavras = []
+
+    for linha in arquivo:
+        fruta = linha.strip()    
+        palavras.append(fruta)
+    arquivo.close()
+    #palavras = ['abacaxi', 'maca','banana', 'manga']    
+    indice = randrange(0,len(palavras))
     palavra_secreta = palavras[indice]
 
     saida2 = ['_' for letra in palavra_secreta]
@@ -42,11 +51,11 @@ def jogo():
         print(linhatraco)
         print(linhatraco)
         print(linhatraco)
-        saida = '' + '  '.join(saida2) 
+        saida = '|' + '  '.join(saida2) 
         print(saida)
 
     mensagem_de_boas_vindas()
-    print_forca(6)
+    print_forca(6)  
 
     while chances > 0:
         letra = input('Digite uma letra: ').lower()
@@ -64,11 +73,13 @@ def jogo():
     
         print_forca(chances)
 
-        if '_' not in saida2:                   
-                       print(saida2)
-                       print('Você ganhou!')      
-                       chances = 0
+        if '_' not in saida2:                           
+            print('Você ganhou!')      
+            chances = 0
+    
     if '_' in saida2:
+        saida2 = list(palavra_secreta)
+        print_forca(chances)
         print('Você foi enforcado   :(   !!!')
 
 jogo()
