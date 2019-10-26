@@ -9,5 +9,3 @@ teste_args_kwargs(*args)
 kwargs = {'arg3':3,'arg2':'dois','arg1':'um'}
 teste_args_kwargs(**kwargs)
 
-kwargs = {'arg3':3,'arg2':'dois','arg1':'um','arg4':4}
-teste_args_kwargs(**kwargs)
