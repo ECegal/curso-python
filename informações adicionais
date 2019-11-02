@@ -1,0 +1,2 @@
+dir(objeto) => retorna todos os métodos existentes na classe
+vars(objeto) => retorna todos os valores dos atributos
