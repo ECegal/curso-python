@@ -1,2 +1,4 @@
 dir(objeto) => retorna todos os métodos existentes na classe
 vars(objeto) => retorna todos os valores dos atributos
+__ dois ***underlines*** = torna a propriedade privada (fake)
+convenção: para propriedades cuja alteração é indesejada, usar 1 underline

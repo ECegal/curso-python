@@ -2,28 +2,33 @@ import datetime
 
 class Conta:
     
-    def __init__(self, numero, cliente, saldo, limite):
-        self.numero = numero
-        self.cliente = cliente
-        self.saldo = saldo
-        self.limite = limite
-        self.historico = Historico()
-        self.data_abertura = datetime.datetime.now()
+    __slots__ = ['_numero','_cliente','_saldo','_limite','_historico','_data_abertura']
+
+    _numero_conta = 0
+
+    def __init__(self, cliente, saldo, limite):
+        #self._numero = numero
+        self._cliente = cliente
+        self._saldo = saldo
+        self._limite = limite
+        self._historico = Historico()
+        self._data_abertura = datetime.datetime.now()
+        Conta._numero_conta += 1
 
     def deposita(self, valor,transferencia = False,conta = None):
-        self.saldo += valor
+        self._saldo += valor
         if not transferencia:
-            self.historico.insere(f"Deposito de {valor}")
+            self._historico.insere(f"Deposito de {valor}")
         else:
-            self.historico.insere(f"Recebida transferencia de {conta.numero} no valor de {valor}")
+            self._historico.insere(f"Recebida transferencia de {conta._numero} no valor de {valor}")
 
     
     def saca(self, valor):
-        if(self.saldo < valor):
+        if(self._saldo < valor):
             return False
         else:            
-            self.saldo -= valor
-            self.historico.insere(f"Saque: {valor}")
+            self._saldo -= valor
+            self._historico.insere(f"Saque: {valor}")
             return True
     
     def transfere_para(self, destino,valor):
@@ -31,14 +36,14 @@ class Conta:
 
         if(retirou):
             destino.deposita(valor,True,self)
-            self.historico.insere(f"Transferido para {destino.numero} o valor {valor}")
+            self._historico.insere(f"Transferido para {destino.numero} o valor {valor}")
         
         return retirou
 
 
     def extrato(self):
-        print("numero: {} \nsaldo:{}".format(self.numero,self.saldo))
-        self.historico.mostra()
+        print("numero: {} \nsaldo:{}".format(self._numero,self._saldo))
+        self._historico.mostra()
 
 class Cliente:
 
