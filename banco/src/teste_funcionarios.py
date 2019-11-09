@@ -18,7 +18,8 @@ class Funcionario:
     def calcula_bonificacao(self):
         return self._salario * 0.1
 
+class Gerente(Funcionario):
+    pass
+
 if __name__ == '__main__':
-    funcionario = Funcionario('Fernando',1,'Engenheiro de Software',8000)
-    print(funcionario.nome)
-    print(funcionario.calcula_bonificacao())
+

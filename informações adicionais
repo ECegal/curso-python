@@ -1,4 +1,10 @@
 dir(objeto) => retorna todos os métodos existentes na classe
 vars(objeto) => retorna todos os valores dos atributos
 __ dois ***underlines*** = torna a propriedade privada (fake)
+_ um **underline** = torna a propriedade protegida (fake)
 convenção: para propriedades cuja alteração é indesejada, usar 1 underline
+
+isinstance(objeto, tipo) verifica se o objeto é uma instancia da classe desejada
+hasattr(objeto, nome do método ou atributo) verifica se o objeto possui um método ou atributo como o nome
+
+
