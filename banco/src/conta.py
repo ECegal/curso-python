@@ -1,7 +1,8 @@
 import datetime
+import abc
 
 
-class Conta:
+class Conta (abc.ABC):
     __slots__ = ['numero', 'cliente',
                  '_saldo', 'historico',
                  'limite']
@@ -10,6 +11,10 @@ class Conta:
     _quantidade_de_contas = 0
 
     # dunder __init__
+
+    @abc.abstractmethod
+    def tipo(self):
+        pass
 
     def __init__(self, numero, cliente, saldo, limite=1000.0):
         self.numero = numero
@@ -43,8 +48,10 @@ class Conta:
             self.historico.transacoes.append(f'Transferencia para a conta {conta_destino.numero}, no valor de {valor}')
             conta_destino.deposita(valor)
 
+    @abc.abstractmethod
     def atualiza(self,taxa):
-        self._saldo += self._saldo * taxa
+        pass
+
 
 
     # para pegar um valor
@@ -58,7 +65,13 @@ class Conta:
         return cls._quantidade_de_contas
 
 
-class ContaCorrente(Conta):
+class TributavelMixIn:
+
+    def get_valor_imposto(self):
+        pass
+
+
+class ContaCorrente(Conta, TributavelMixIn):
 
     def atualiza(self,taxa):
         self._saldo += self._saldo * taxa * 2
@@ -66,9 +79,42 @@ class ContaCorrente(Conta):
     def deposita(self, valor):
         self._saldo += valor - 0.10
 
+    def tipo(self):
+        return 'Conta Corrente'
+
+    def get_valor_imposto(self):
+        return self._saldo * 0.01
+
+
 class ContaPoupanca(Conta):
+
     def atualiza(self,taxa):
         self._saldo += self._saldo * taxa * 3
+
+    def tipo(self):
+        return 'Conta Poupanca'
+
+class ContaInvestimento(Conta):
+
+    def atualiza(self, taxa):
+        self._saldo += self._saldo * taxa * 5
+
+    def tipo(self):
+        return 'Conta Investimento'
+
+
+class SeguroDeVida(TributavelMixIn):
+
+    def __init__(self, valor, titular, numero_apolice):
+        self._valor = valor
+        self._titular = titular
+        self._numero_apolice = numero_apolice
+
+    def get_valor_imposto(self):
+        return 42 + self._valor * 0.05
+
+
+
 
 
 class Cliente:
@@ -114,16 +160,19 @@ class Banco:
     def pega_total_contas(self):
         return len(self._contas)
 
+
+
+
 if __name__ == '__main__':
-    c = Conta('123-4', 'Joao',1000.0)
+    #c = Conta('123-4', 'Joao',1000.0)
     cc = ContaCorrente('123-5','Jose', 1000.0)
     cp = ContaPoupanca('123-6','Maria',1000.0)
 
-    c.atualiza(0.01)
+    #c.atualiza(0.01)
     cc.atualiza(0.01)
     cp.atualiza(0.01)
 
-    print(c.saldo)
+    #print(c.saldo)
     print(cc.saldo)
     print(cp.saldo)
 
@@ -132,7 +181,7 @@ if __name__ == '__main__':
     #print(cp)
 
     banco = Banco()
-    banco.adiciona(c)
+    #banco.adiciona(c)
     banco.adiciona(cc)
     banco.adiciona(cp)
 
