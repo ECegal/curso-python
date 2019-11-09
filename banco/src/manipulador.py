@@ -6,17 +6,17 @@ class ManipuladorDeTributaveis:
             total += t.get_valor_imposto()
         return total
 
-import abc
-
-
-class Tributavel(abc.ABC):
-
-    @abc.abstractmethod
-    def get_valor_imposto(self):
-        pass
+# import abc
+#
+#
+# class Tributavel(abc.ABC):
+#
+#     @abc.abstractmethod
+#     def get_valor_imposto(self):
+#         pass
 
 if __name__ == '__main__':
-    from conta import ContaCorrente, SeguroDeVida, TributavelMixIn
+    from conta import ContaCorrente, SeguroDeVida
 
     cc1 = ContaCorrente('123-4','João',1000.0)
     cc2 = ContaCorrente('123-4','Jose',1000.0)

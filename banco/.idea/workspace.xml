@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21f1f872-86f7-4933-adab-b2106c646976" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/conta.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/conta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/funcionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/funcionario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/teste_funcionarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/teste_funcionarios.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manipulador.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/manipulador.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
