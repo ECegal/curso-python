@@ -7,4 +7,34 @@ convenção: para propriedades cuja alteração é indesejada, usar 1 underline
 isinstance(objeto, tipo) verifica se o objeto é uma instancia da classe desejada
 hasattr(objeto, nome do método ou atributo) verifica se o objeto possui um método ou atributo como o nome
 
+http://dontpad.com/python8578/posts
+
+https://blog.caelum.com.br/quais-as-diferencas-entre-python-2-e-python-3/
+
+https://www.alura.com.br/artigos/simplicando-o-processamento-com-compreensao-de-lista-do-python
+https://www.alura.com.br/artigos/ordenando-listas-no-python
+https://www.alura.com.br/artigos/adicionando-elementos-na-lista-do-python-append-ou-extend
+https://www.alura.com.br/artigos/trabalhando-com-arquivos-e-diretorios-no-python
+https://www.alura.com.br/artigos/o-que-sao-iteradores-no-python
+https://www.alura.com.br/artigos/listas-no-python
+https://www.alura.com.br/artigos/formatando-moeda-no-python
+https://www.alura.com.br/artigos/a-diferenca-das-funcoes-input-e-raw-input-no-python
+https://www.alura.com.br/artigos/lidando-com-datas-e-horarios-no-python
+https://www.alura.com.br/artigos/qual-a-diferenca-entre-e-is-no-python
+https://www.alura.com.br/artigos/entendendo-o-desempacotamento-no-python
+https://www.alura.com.br/artigos/trabalhando-com-o-dicionario-no-python
+https://www.alura.com.br/artigos/o-que-significa-if-name-main-no-python
+https://www.alura.com.br/artigos/conhecendo-as-tuplas-no-python
+https://www.alura.com.br/artigos/precisao-numeros-decimais-python
+https://www.alura.com.br/artigos/como-fazer-copia-de-lista-python
+https://www.alura.com.br/artigos/montando-cenarios-de-testes-com-o-pytest
+
+
+
+
+
+-- Funcional
+https://blog.caelum.com.br/programacao-funcional-no-python/
+https://blog.caelum.com.br/conhecendo-os-geradores-no-python/
+
 

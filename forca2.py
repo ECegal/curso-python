@@ -2,15 +2,15 @@ from random import randrange
 
 
 def jogo():
-    arquivo = open('palavras.txt')
+    #arquivo = open('palavras.txt')
+    with open('palavras.txt') as arquivo:
     
     #palavras = arquivo.readlines()
-    palavras = []
-
-    for linha in arquivo:
-        fruta = linha.strip()    
-        palavras.append(fruta)
-    arquivo.close()
+        palavras = []
+        for linha in arquivo:
+            fruta = linha.strip()    
+            palavras.append(fruta)
+    #arquivo.close()
     #palavras = ['abacaxi', 'maca','banana', 'manga']    
     indice = randrange(0,len(palavras))
     palavra_secreta = palavras[indice]
@@ -31,9 +31,11 @@ def jogo():
         print ('Bem vindo ao jogo da forca! o/')
         print ('******************************')
 
+
     def print_forca(chances):
         print(linha1)
         print(linha2)    
+        
         if chances < 6:                
             print('{}{}'.format(linhatraco,'       ()')) #cabeca
         else:
@@ -48,6 +50,7 @@ def jogo():
             print('{}{}'.format(linhatraco,'        /')) #pernas
         elif chances<=2:
             print('{}{}'.format(linhatraco,'        /\\')) #pernas
+        
         print(linhatraco)
         print(linhatraco)
         print(linhatraco)

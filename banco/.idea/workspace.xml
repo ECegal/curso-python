@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21f1f872-86f7-4933-adab-b2106c646976" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/manipulador.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/manipulador.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/excecoes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/conta.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/conta.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +36,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.manipulador">
+  <component name="RunManager" selected="Python.conta">
     <configuration name="conta" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="banco" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -100,8 +102,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.manipulador" />
         <item itemvalue="Python.conta" />
+        <item itemvalue="Python.manipulador" />
         <item itemvalue="Python.teste_funcionarios" />
       </list>
     </recent_temporary>

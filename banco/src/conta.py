@@ -32,12 +32,15 @@ class Conta (abc.ABC):
         self._saldo += valor
 
     def saca(self, valor):
+
+        if valor < 0:
+            raise ValueError('Você tentou sacar um valor negativo')
+        if(self._saldo < valor):
+            raise excecoes.SaldoInsuficienteError('Saldo insuficiente')
+
         if valor <= self._saldo + self.limite:
             self.historico.transacoes.append(f'Saque no valor de {valor}')
             self._saldo -= valor
-            return True
-        else:
-            return False
 
     def extrato(self):
         print("numero: {} \nsaldo: {}".format(self.numero, self.saldo))
@@ -70,14 +73,26 @@ class TributavelMixIn:
     def get_valor_imposto(self):
         pass
 
+import excecoes
 
 class ContaCorrente(Conta, TributavelMixIn):
+
+    def saca(self, valor):
+        if valor < 0:
+            raise ValueError('Você tentou sacar um valor negativo')
+        if(self._saldo < valor):
+            raise excecoes.SaldoInsuficienteError('Saldo insuficiente')
+
+        super.saca(valor)
 
     def atualiza(self,taxa):
         self._saldo += self._saldo * taxa * 2
 
     def deposita(self, valor):
-        self._saldo += valor - 0.10
+        if valor < 0:
+            raise ValueError
+        else:
+            self._saldo += valor - 0.10
 
     def tipo(self):
         return 'Conta Corrente'
@@ -161,29 +176,38 @@ class Banco:
         return len(self._contas)
 
 
-
-
 if __name__ == '__main__':
+    cc = ContaCorrente('123-4','João',1000.0)
+
+    valor = 5000.0
+
+    try:
+        cc.saca(valor)
+        print('Saque de  {} realizado com sucesso'.format(valor))
+        #print(f'Saque de  {valor} realizado com sucesso')
+    except ValueError:
+        print('O valor a ser sacado deve ser um número positivo.')
+
     #c = Conta('123-4', 'Joao',1000.0)
-    cc = ContaCorrente('123-5','Jose', 1000.0)
-    cp = ContaPoupanca('123-6','Maria',1000.0)
-
-    #c.atualiza(0.01)
-    cc.atualiza(0.01)
-    cp.atualiza(0.01)
-
-    #print(c.saldo)
-    print(cc.saldo)
-    print(cp.saldo)
-
-    #print(c)
-    #print(cc)
-    #print(cp)
-
-    banco = Banco()
-    #banco.adiciona(c)
-    banco.adiciona(cc)
-    banco.adiciona(cp)
-
-    for indice in range(0, banco.pega_total_contas()):
-        print(banco.pega_conta(indice))
+    # cc = ContaCorrente('123-5','Jose', 1000.0)
+    # cp = ContaPoupanca('123-6','Maria',1000.0)
+    #
+    # #c.atualiza(0.01)
+    # cc.atualiza(0.01)
+    # cp.atualiza(0.01)
+    #
+    # #print(c.saldo)
+    # print(cc.saldo)
+    # print(cp.saldo)
+    #
+    # #print(c)
+    # #print(cc)
+    # #print(cp)
+    #
+    # banco = Banco()
+    # #banco.adiciona(c)
+    # banco.adiciona(cc)
+    # banco.adiciona(cp)
+    #
+    # for indice in range(0, banco.pega_total_contas()):
+    #     print(banco.pega_conta(indice))
