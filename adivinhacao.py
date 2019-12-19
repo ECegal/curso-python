@@ -3,6 +3,8 @@ print('****************************************')
 print('***********jogo da adivinhação**********')
 print('****************************************')
 
+#teste
+
 import random
 numero_secreto = random.randint(1,100)
 
